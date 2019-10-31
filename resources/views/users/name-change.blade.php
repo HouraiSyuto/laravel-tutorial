@@ -14,7 +14,7 @@
                 @endforeach
               </div>
             @endif
-            <form action="{{ route('name-change')}}" method="POST">
+            <form action="{{ route('users.name-change')}}" method="POST">
               @csrf
               <input type="hidden" name="id" value="{{ Auth::user()->name }}">
               <div class="form-group">
