@@ -20,7 +20,11 @@ class UserController extends Controller
     public function edit(Request $request)
     {
 
-
+        $param = [
+            'id' => $request->id,
+            'name' => $request->changename,
+        ];
+        DB::update('update users set name =:name where id = :id', $param);
         return redirect()->route('home');
     }
 }

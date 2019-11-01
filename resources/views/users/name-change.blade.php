@@ -16,10 +16,10 @@
             @endif
             <form action="{{ route('users.name-change')}}" method="POST">
               @csrf
-              <input type="hidden" name="id" value="{{ Auth::user()->name }}">
               <div class="form-group">
                 <label for="name">ユーザ名</label>
                 @foreach($items as $item)
+                  <input type="hidden" name="id" value="{{ $item->id }}">
                   <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ $item->name }}" />
                 @endforeach
               </div>
