@@ -20,7 +20,7 @@
               <div class="form-group">
                 <label for="name">ユーザ名</label>
                 @foreach($items as $item)
-                  <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" />
+                  <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ $item->name }}" />
                 @endforeach
               </div>
               <div class="form-group">

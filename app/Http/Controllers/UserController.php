@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $param = ['user' => Auth::user()->name];
-        $items = DB::select('select name from users where name = :user', $param);
+        $items = DB::select('select * from users where name = :user', $param);
         return view('users/name-change', ['items' => $items]);
 
     }
