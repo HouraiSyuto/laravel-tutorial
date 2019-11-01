@@ -19,7 +19,9 @@
               <input type="hidden" name="id" value="{{ Auth::user()->name }}">
               <div class="form-group">
                 <label for="name">ユーザ名</label>
-                <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" />
+                @foreach($items as $item)
+                  <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" />
+                @endforeach
               </div>
               <div class="form-group">
                 <label for="changename">新しいユーザ名</label>
