@@ -18,10 +18,8 @@
               @csrf
               <div class="form-group">
                 <label for="name">ユーザ名</label>
-                @foreach($items as $item)
-                  <input type="hidden" name="id" value="{{ $item->id }}">
-                  <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ $item->name }}" />
-                @endforeach
+                <input type="hidden" name="id" value="{{ $item->id }}">
+                <input type="text" disabled="disabled" class="form-control" id="name" name="name" value="{{ $item->name }}" />
               </div>
               <div class="form-group">
                 <label for="changename">新しいユーザ名</label>

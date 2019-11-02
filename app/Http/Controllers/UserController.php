@@ -12,8 +12,8 @@ class UserController extends Controller
     public function index()
     {
         $param = ['user' => Auth::user()->name];
-        $items = DB::select('select * from users where name = :user', $param);
-        return view('users/name_change', ['items' => $items]);
+        $item = DB::select('select * from users where name = :user', $param);
+        return view('users/name_change', ['item' => $item[0]]);
 
     }
 
