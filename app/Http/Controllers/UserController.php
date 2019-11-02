@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $param = ['user' => Auth::user()->name];
         $items = DB::select('select * from users where name = :user', $param);
-        return view('users/name-change', ['items' => $items]);
+        return view('users/name_change', ['items' => $items]);
 
     }
 

@@ -14,7 +14,7 @@
                 @endforeach
               </div>
             @endif
-            <form action="{{ route('users.name-change')}}" method="POST">
+            <form action="{{ route('users.name_change')}}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="name">ユーザ名</label>
