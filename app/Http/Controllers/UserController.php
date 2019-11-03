@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\EditUser;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
         return view('users/name_change', ['item' => $item]);
     }
 
-    public function edit(Request $request)
+    public function edit(EditUser $request)
     {
         $user = User::find($request->id);
         $user->name = $request->changename;
