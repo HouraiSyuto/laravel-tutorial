@@ -12,19 +12,15 @@ class UserController extends Controller
     public function index()
     {
         $param = ['user' => Auth::user()->name];
-        $item = DB::select('select * from users where name = :user', $param);
-        return view('users/name_change', ['item' => $item[0]]);
-
+        $item = User::where('name',$param)->first();
+        return view('users/name_change', ['item' => $item]);
     }
 
     public function edit(Request $request)
     {
-
-        $param = [
-            'id' => $request->id,
-            'name' => $request->changename,
-        ];
-        DB::update('update users set name =:name where id = :id', $param);
+        $user = User::find($request->id);
+        $user->name = $request->changename;
+        $user->save();
         return redirect()->route('home');
     }
 }
