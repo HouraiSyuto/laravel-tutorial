@@ -3,6 +3,9 @@
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
+    Route::get('/edit', 'UserController@index')->name('users.name_change');
+    Route::post('/edit', 'UserController@edit');
+
     Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     Route::post('/folders/create', 'FolderController@create');
 
