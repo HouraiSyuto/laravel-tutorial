@@ -51,6 +51,11 @@
                 </td>
                 <td>{{ $task->formatted_due_date }}</td>
                 <td>
+                  <a href="{{ route('tasks.create', ['id' => $current_folder_id]) }}" class="btn btn-default btn-block">
+                    タスクをシェアする
+                  </a>
+                </td>
+                <td>
                   <a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
                     編集
                   </a>
