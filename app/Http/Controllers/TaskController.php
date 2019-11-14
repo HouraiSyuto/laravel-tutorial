@@ -109,4 +109,31 @@ class TaskController extends Controller
             abort(404);
         }
     }
+
+    /**
+     * タスクURLシェアフォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showUrlShareForm(Folder $folder, Task $task)
+    {
+        $this->checkRelation($folder, $task);
+
+        return view('tasks/url_share', [
+            'task' => $task,
+        ]);
+    }
+
+    /**
+     * タスク編集
+     * @param Folder $folder
+     * @param Task $task
+     * @param EditTask $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function homeBack(Folder $folder, Task $task, EditTask $request)
+    {
+        return redirect()->route('home');
+    }
 }
