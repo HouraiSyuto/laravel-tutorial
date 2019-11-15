@@ -25,9 +25,10 @@
               @csrf
               
               <div class="form-group">
-                <label for="title">URL</label>
-                <input type="text" class="form-control" name="url" disabled="disabled" id="url"
-                       value=<?php echo url()->current(); ?>/>
+                <label for="url">URL</label>
+                <div class="form-control">
+                  <a href="{{ route('tasks.share', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"><?php echo url('/tasks/share', null, true); ?></a>
+                </div>
               </div>
               <div class="form-group">
                 <label for="title">タイトル</label>
