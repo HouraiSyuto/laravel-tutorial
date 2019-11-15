@@ -126,7 +126,7 @@ class TaskController extends Controller
     }
 
     /**
-     * タスク編集
+     * ホーム画面に戻る
      * @param Folder $folder
      * @param Task $task
      * @param EditTask $request
@@ -136,4 +136,22 @@ class TaskController extends Controller
     {
         return redirect()->route('home');
     }
+
+    /**
+     * タスクシェアフォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showShareForm(Folder $folder, Task $task)
+    {
+        $this->checkRelation($folder, $task);
+
+        return view('tasks/share', [
+            'task' => $task,
+        ]);
+    }
+
+
+
 }
