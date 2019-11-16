@@ -120,6 +120,9 @@ class TaskController extends Controller
     {
         $this->checkRelation($folder, $task);
 
+        $task->share_url = "hoge";
+        $task->save();
+
         return view('tasks/url_share', [
             'task' => $task,
         ]);
@@ -143,10 +146,10 @@ class TaskController extends Controller
      * @param Task $task
      * @return \Illuminate\View\View
      */
-    public function showShareForm(Folder $folder, Task $task)
+    public function showShareForm(Request $request)
     {
-        $this->checkRelation($folder, $task);
-
+        $task = Task::where('share_url',$request->share_url)->first();
+        
         return view('tasks/share', [
             'task' => $task,
         ]);
