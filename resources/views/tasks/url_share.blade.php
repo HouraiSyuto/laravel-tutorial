@@ -27,7 +27,7 @@
               <div class="form-group">
                 <label for="url">URL</label>
                 <div class="form-control">
-                  <a href="{{ route('tasks.share', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"><?php echo url('/tasks/share', null, true); ?></a>
+                  <a href="{{ route('tasks.share', ['share_url' => $task->share_url]) }}">{{$task->title}}</a>
                 </div>
               </div>
               <div class="form-group">
