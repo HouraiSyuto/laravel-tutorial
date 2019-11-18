@@ -54,6 +54,7 @@ class TaskController extends Controller
         $task = new Task();
         $task->title = $request->title;
         $task->due_date = $request->due_date;
+        $task->share_url = uniqid();
 
         $folder->tasks()->save($task);
 
@@ -119,9 +120,6 @@ class TaskController extends Controller
     public function showUrlShareForm(Folder $folder, Task $task)
     {
         $this->checkRelation($folder, $task);
-
-        $task->share_url = "hoge";
-        $task->save();
 
         return view('tasks/url_share', [
             'task' => $task,
