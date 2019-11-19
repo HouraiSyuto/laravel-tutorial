@@ -28,7 +28,7 @@
                 <label for="url">URL</label>
                 <div class="form-control">
                   <a href="{{ route('tasks.share', ['share_url' => $task->share_url]) }}">
-                    {{$task->share_url}}
+                    <?php echo url('/folders/tasks/share');?>/{{$task->share_url}}
                   </a>
                 </div>
               </div>

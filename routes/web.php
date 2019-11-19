@@ -23,6 +23,6 @@ Route::group(['middleware' => 'auth'], function() {
     });
 });
 
-Route::get('/folders/tasks/share', 'TaskController@showShareForm')->name('tasks.share');
+Route::get('/folders/tasks/share/{share_url}', 'TaskController@showShareForm')->name('tasks.share');
 
 Auth::routes();
