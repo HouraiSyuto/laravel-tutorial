@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Task\TaskRepositoryInterface;
 use App\Folder;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
@@ -11,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+    public function __construct(TaskRepositoryInterface $task_repository)
+   {
+      $this->$task_repository = $task_repository;
+   }
+
     /**
      * タスク一覧
      * @param Folder $folder
