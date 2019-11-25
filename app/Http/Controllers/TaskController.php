@@ -152,7 +152,7 @@ class TaskController extends Controller
      */
     public function showShareForm(Request $request)
     {
-        $task = Task::where('share_url',$request->share_url)->first();
+        $task = $this->task_repository->getFirstRecordByShareTask($request->share_url);
         
         return view('tasks/share', [
             'task' => $task,
