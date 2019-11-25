@@ -31,8 +31,16 @@
               </div>
               <div class="form-group">
                 <label for="status">状態</label>
-                <input type="text" disabled="disabled" class="form-control" name="status" id="status"
-                       value="{{ $task->status }}" />
+                <select name="status" disabled="disabled" id="status" class="form-control">
+                  @foreach(\App\Task::STATUS as $key => $val)
+                    <option
+                        value="{{ $key }}"
+                        {{ $key == old('status', $task->status) ? 'selected' : '' }}
+                    >
+                      {{ $val['label'] }}
+                    </option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="due_date">期限</label>
