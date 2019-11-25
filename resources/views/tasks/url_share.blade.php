@@ -55,9 +55,6 @@
                 <input type="text" class="form-control" name="due_date" disabled="disabled" id="due_date"
                        value="{{ old('due_date', $task->formatted_due_date) }}" />
               </div>
-              <div class="text-right">
-                <button type="submit" class="btn btn-primary">戻る</button>
-              </div>
             </form>
           </div>
         </nav>
