@@ -14,7 +14,7 @@ class TaskController extends Controller
 {
     public function __construct(TaskRepositoryInterface $task_repository)
    {
-      $this->$task_repository = $task_repository;
+      $this->task_repository = $task_repository;
    }
 
     /**
