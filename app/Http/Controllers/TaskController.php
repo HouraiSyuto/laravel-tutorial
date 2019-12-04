@@ -133,18 +133,6 @@ class TaskController extends Controller
     }
 
     /**
-     * ホーム画面に戻る
-     * @param Folder $folder
-     * @param Task $task
-     * @param EditTask $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function homeBack(Folder $folder, Task $task, EditTask $request)
-    {
-        return redirect()->route('home');
-    }
-
-    /**
      * タスクシェアフォーム
      * @param Folder $folder
      * @param Task $task
