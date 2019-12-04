@@ -23,7 +23,7 @@ class TaskRepository implements TaskRepositoryInterface
      * @var $task
      * @return object
      */
-    public function getFirstRecordByShareTask($share_url)
+    public function getFirstRecordByShareUrl($share_url)
     {
         return Task::where('share_url', $share_url)->first();
     }

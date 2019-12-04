@@ -7,8 +7,8 @@ interface TaskRepositoryInterface
     /**
      * シェアタスクを1レコード取得
      *
-     * @param $task
+     * @param $share_url
      * @return mixed
      */
-    public function getFirstRecordByShareTask($task);
+    public function getFirstRecordByShareUrl($share_url);
 }
