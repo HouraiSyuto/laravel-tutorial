@@ -26,8 +26,7 @@
 
               <div class="form-group">
                 <label for="title">タイトル</label>
-                <input type="text" disabled="disabled" class="form-control" name="title" id="title"
-                value="{{ old('title', $task->title) }}" />
+                <p>{{ old('title', $task->title) }}</p>
               </div>
               <div class="form-group">
                 <label for="status">状態</label>
