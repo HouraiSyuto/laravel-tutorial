@@ -142,11 +142,21 @@ class TaskController extends Controller
     {
         $task = $this->task_repository->getFirstRecordByShareUrl($request->share_url);
         
+        $this->checkTargetTask($task);
+
         return view('tasks/share', [
             'task' => $task,
         ]);
     }
 
-
-
+    /**
+     * フォルダとタスクの関連性があるか調べる
+     * @param Task $task
+     */
+    private function checkTargetTask($task)
+    {
+        if ($task == null) {
+            abort(404);
+        }
+    }
 }
