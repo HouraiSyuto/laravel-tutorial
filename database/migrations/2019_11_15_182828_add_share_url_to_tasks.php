@@ -26,7 +26,7 @@ class AddShareUrlToTasks extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            //
+            $table->dropColumn('share_url');
         });
     }
 }
