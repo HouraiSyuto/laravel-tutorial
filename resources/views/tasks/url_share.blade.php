@@ -20,7 +20,7 @@
             @endif
             <form
                 action="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
-                method="POST"
+                method="GET"
             >
               @csrf
               
