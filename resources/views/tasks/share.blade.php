@@ -18,10 +18,6 @@
                 @endforeach
               </div>
             @endif
-            <form
-                action="{{ route('tasks.share', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
-                method="GET"
-            >
               @csrf
 
               <div class="form-group">
@@ -46,7 +42,6 @@
                 <input type="text" class="form-control" name="due_date" disabled="disabled" id="due_date"
                        value="{{ old('due_date', $task->formatted_due_date) }}" />
               </div>
-            </form>
           </div>
         </nav>
       </div>
