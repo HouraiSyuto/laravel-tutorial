@@ -25,8 +25,7 @@
               <select name="status" disabled="disabled" id="status" class="form-control">
                 @foreach(\App\Task::STATUS as $key => $val)
                   <option
-                      value="{{ $key }}"
-                      {{ $key == old('status', $task->status) ? 'selected' : '' }}
+                      value="{{ $task->status }}"
                   >
                     {{ $val['label'] }}
                   </option>
