@@ -51,12 +51,9 @@
                 </td>
                 <td>{{ $task->formatted_due_date }}</td>
                 <td>
-                  <form class="shares-form" action="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
-                      @csrf
-                      <div class="text-right">
-                        <button type="submit" class="btn btn-default">シェア</button>
-                      </div> 
-                  </form>
+                  <a href="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}" class="btn btn-default btn-block">
+                    シェア
+                  </a>
                 </td>
                 <td>
                   <a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
