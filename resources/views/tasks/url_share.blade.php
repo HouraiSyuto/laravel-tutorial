@@ -18,7 +18,7 @@
             <div class="form-group">
               <label for="title">タイトル</label>
               <input type="text" disabled="disabled" class="form-control" name="title" id="title"
-                      value="{{ old('title', $task->title) }}" />
+                      value="{{ $task->title }}" />
             </div>
             <div class="form-group">
               <label for="status">状態</label>
@@ -36,7 +36,7 @@
             <div class="form-group">
               <label for="due_date">期限</label>
               <input type="text" class="form-control" name="due_date" disabled="disabled" id="due_date"
-                      value="{{ old('due_date', $task->formatted_due_date) }}" />
+                      value="{{ $task->formatted_due_date }}" />
             </div>
           </div>
         </nav>

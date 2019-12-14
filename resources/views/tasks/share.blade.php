@@ -27,7 +27,7 @@
             <div class="form-group">
               <label for="due_date">期限</label>
               <input type="text" class="form-control" name="due_date" disabled="disabled" id="due_date"
-                      value="{{ old('due_date', $task->formatted_due_date) }}" />
+                      value="{{ $task->formatted_due_date }}" />
             </div>
           </div>
         </nav>
