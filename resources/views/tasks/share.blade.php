@@ -9,7 +9,7 @@
           <div class="panel-body">
             <div class="form-group">
               <label for="title">タイトル</label>
-              <p>{{ old('title', $task->title) }}</p>
+              <p>{{ $task->title }}</p>
             </div>
             <div class="form-group">
               <label for="status">状態</label>
