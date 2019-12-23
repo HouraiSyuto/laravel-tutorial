@@ -40,6 +40,7 @@
               <th>状態</th>
               <th>期限</th>
               <th></th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -51,7 +52,7 @@
                 </td>
                 <td>{{ $task->formatted_due_date }}</td>
                 <td>
-                  <a href="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}" class="btn btn-default btn-block">
+                  <a href="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
                     シェア
                   </a>
                 </td>

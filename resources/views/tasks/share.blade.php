@@ -12,21 +12,12 @@
               <p>{{ $task->title }}</p>
             </div>
             <div class="form-group">
-              <label for="status">状態</label>
-              <select name="status" disabled="disabled" id="status" class="form-control">
-                @foreach(\App\Task::STATUS as $key => $val)
-                  <option
-                      value="{{ $task->status }}"
-                  >
-                    {{ $val['label'] }}
-                  </option>
-                @endforeach
-              </select>
+              <label for="status">状態</label><br>
+              <p class="label {{ $task->status_class }}">{{ $task->status_label }}</p>
             </div>
             <div class="form-group">
               <label for="due_date">期限</label>
-              <input type="text" class="form-control" name="due_date" disabled="disabled" id="due_date"
-                      value="{{ $task->formatted_due_date }}" />
+              <p>{{ $task->formatted_due_date }}</p>
             </div>
           </div>
         </nav>
