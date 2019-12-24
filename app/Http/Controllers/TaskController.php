@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Task\TaskRepositoryInterface;
 use App\Folder;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
@@ -11,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+    public function __construct(TaskRepositoryInterface $task_repository)
+   {
+      $this->task_repository = $task_repository;
+   }
+
     /**
      * タスク一覧
      * @param Folder $folder
@@ -54,6 +60,7 @@ class TaskController extends Controller
         $task = new Task();
         $task->title = $request->title;
         $task->due_date = $request->due_date;
+        $task->share_url = uniqid();
 
         $folder->tasks()->save($task);
 
@@ -108,5 +115,39 @@ class TaskController extends Controller
         if ($folder->id !== $task->folder_id) {
             abort(404);
         }
+    }
+
+    /**
+     * タスクURLシェアフォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showUrlShareForm(Folder $folder, Task $task)
+    {
+        $this->checkRelation($folder, $task);
+
+        return view('tasks/url_share', [
+            'task' => $task,
+        ]);
+    }
+
+    /**
+     * タスクシェアフォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showShareForm(Request $request)
+    {
+        $task = $this->task_repository->getFirstRecordByShareUrl($request->share_url);
+        
+        if (is_null($task)) {
+            abort(404);
+        }
+
+        return view('tasks/share', [
+            'task' => $task,
+        ]);
     }
 }
