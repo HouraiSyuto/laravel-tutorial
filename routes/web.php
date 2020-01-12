@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('/folders/{folder}/tasks/{task}/edit', 'TaskController@edit');
 
         Route::get('/folders/{folder}/tasks/{task}/url', 'TaskController@showUrlShareForm')->name('tasks.url');
+
+        Route::get('/folders/{folder}/tasks/{task}/details', 'TaskController@showDetailsForm')->name('tasks.details');
         
     });
 });

@@ -150,4 +150,19 @@ class TaskController extends Controller
             'task' => $task,
         ]);
     }
+
+    /**
+     * タスク詳細シェアフォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showDetailsForm(Folder $folder, Task $task)
+    {
+        $this->checkRelation($folder, $task);
+
+        return view('tasks/details', [
+            'task' => $task,
+        ]);
+    }
 }
