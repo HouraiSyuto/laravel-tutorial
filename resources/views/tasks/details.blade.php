@@ -5,16 +5,8 @@
     <div class="row">
       <div class="col col-md-offset-3 col-md-6">
         <nav class="panel panel-default">
-          <div class="panel-heading">タスクの詳細</div>
-          <div class="panel-body">              
-            <div class="form-group">
-              <label for="url">URL</label>
-              <div class="form-control">
-                <a href="{{ route('tasks.share', ['share_url' => $task->share_url]) }}" >
-                  {{ route('tasks.share', ['share_url' => $task->share_url]) }}
-                </a>
-              </div>
-            </div>
+          <div class="panel-heading">タスク詳細</div>
+          <div class="panel-body">
             <div class="form-group">
               <label for="title">タイトル</label>
               <p>{{ $task->title }}</p>

@@ -146,23 +146,23 @@ class TaskController extends Controller
             abort(404);
         }
 
-        return view('tasks/share', [
-            'task' => $task,
-        ]);
-    }
+        if (Auth::check()) {
+            $login_check = Auth::user()->name;
+        }else{
+            $login_check = null;
+        }
 
-    /**
-     * タスク詳細シェアフォーム
-     * @param Folder $folder
-     * @param Task $task
-     * @return \Illuminate\View\View
-     */
-    public function showDetailsForm(Folder $folder, Task $task)
-    {
-        $this->checkRelation($folder, $task);
+        $folder = $this->task_repository->getFolderCreator($task->folder_id);
+        $user = $this->task_repository->getTaskCreator($folder->user_id);
 
-        return view('tasks/details', [
-            'task' => $task,
-        ]);
+        if($user->name == $login_check){
+            return view('tasks/details', [
+                'task' => $task,
+            ]);
+        }else{
+            return view('tasks/share', [
+                'task' => $task,
+            ]);
+        }  
     }
 }
