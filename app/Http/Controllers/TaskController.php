@@ -7,6 +7,7 @@ use App\Folder;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
 use App\Task;
+use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,6 +64,10 @@ class TaskController extends Controller
         $task->share_url = uniqid();
 
         $folder->tasks()->save($task);
+
+        $file = $request->file('file');
+ 
+        $path = Storage::disk('s3')->putFile('/public', $file, 'public');
 
         return redirect()->route('tasks.index', [
             'id' => $folder->id,
