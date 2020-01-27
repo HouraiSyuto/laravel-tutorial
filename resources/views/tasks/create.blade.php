@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" name="due_date" id="due_date" value="{{ old('due_date') }}" />
               </div>
               <div class="form-group">
-                <label for="due_date">画像</label>
+                <label for="file">画像</label>
                 {{ csrf_field() }}
                 <input type="file" name="file">
               </div>
