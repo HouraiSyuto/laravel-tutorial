@@ -62,6 +62,7 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->due_date = $request->due_date;
         $task->share_url = uniqid();
+        $task->details = $request->details;
 
         $folder->tasks()->save($task);
 
