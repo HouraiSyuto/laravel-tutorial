@@ -46,6 +46,11 @@
                 <input type="text" class="form-control" name="due_date" id="due_date"
                        value="{{ old('due_date', $task->formatted_due_date) }}" />
               </div>
+              <div class="form-group">
+                <label for="details">詳細</label>
+                <textarea class="form-control" name="details" id="details"
+                       value="{{ old('details', $task->details) }}" maxlength="400" ></textarea>
+              </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">送信</button>
               </div>
