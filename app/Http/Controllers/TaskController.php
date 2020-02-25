@@ -64,11 +64,14 @@ class TaskController extends Controller
         $task->share_url = uniqid();
         $task->details = $request->details;
 
-        $folder->tasks()->save($task);
-
         $file = $request->file('file');
- 
         $path = Storage::disk('s3')->putFile('/public', $file, 'public');
+        if(empty($path)){
+            throw new Exception('画像のアップロードに失敗しました。');
+        }
+        $task->s3_object_url = Storage::disk('s3')->url($path);
+        
+        $folder->tasks()->save($task);
 
         return redirect()->route('tasks.index', [
             'id' => $folder->id,
