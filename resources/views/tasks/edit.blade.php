@@ -51,6 +51,11 @@
                 <textarea class="form-control" name="details" id="details"
                        value="{{ old('details', $task->details) }}" maxlength="400" ></textarea>
               </div>
+              <div class="form-group">
+                <label for="s3_object_url">画像</label>
+                <br>
+                <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+              </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">送信</button>
               </div>
