@@ -55,6 +55,8 @@
                 <label for="s3_object_url">画像</label>
                 <br>
                 <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+                {{ csrf_field() }}
+                <input type="file" name="file">
               </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">送信</button>

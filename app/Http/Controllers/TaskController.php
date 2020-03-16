@@ -108,7 +108,30 @@ class TaskController extends Controller
         $task->status = $request->status;
         $task->due_date = $request->due_date;
         $task->details = $request->details;
-        $task->save();
+
+
+        // $path = parse_url($task->s3_object_url, PHP_URL_PATH);
+
+        // if ($request->has('file') &&
+        //     Storage::disk('s3')->exists($path)
+        // ) {
+        //     Storage::disk('s3')->delete($path);
+        // }
+        
+        if ($request->has('file')) {
+            $file = $request->file('file');
+            $path = Storage::disk('s3')->putFile('/public', $file, 'public');
+            if(empty($path)){
+                throw new Exception('画像のアップロードに失敗しました。');
+            }
+            // $task->s3_object_url = Storage::disk('s3')->url($path);
+        } else {
+            $path = $task->image_path;
+        }  
+        
+        if ($task->image_path !== "") {
+            $task->save();
+        }
 
         return redirect()->route('tasks.index', [
             'id' => $task->folder_id,
