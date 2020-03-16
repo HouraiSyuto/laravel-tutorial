@@ -20,7 +20,7 @@
             @endif
             <form
                 action="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
-                method="POST"
+                method="POST" enctype="multipart/form-data"
             >
               @csrf
               <div class="form-group">
