@@ -64,7 +64,9 @@ class TaskController extends Controller
         $task->share_url = uniqid();
         $task->details = $request->details;
         $task->s3_object_url = $this->uploadImage($task, $request);
-        $folder->tasks()->save($task);
+        if (isset($task->s3_object_url)) {
+            $folder->tasks()->save($task);
+        }
 
         return redirect()->route('tasks.index', [
             'id' => $folder->id,
@@ -175,12 +177,16 @@ class TaskController extends Controller
      */
     public function uploadImage($task, $request)
     {
-        $file = $request->file('file');
-        $path = Storage::disk('s3')->putFile('/public', $file, 'public');
-        if(empty($path)){
-            throw new Exception('画像のアップロードに失敗しました。');
+        if ($request->has('file')) {
+            $file = $request->file('file');
+            $path = Storage::disk('s3')->putFile('/public', $file, 'public');
+            if(empty($path)){
+                throw new Exception('画像のアップロードに失敗しました。');
+            }
+            $s3_object_url = Storage::disk('s3')->url($path);
+        } else {
+            $s3_object_url = $task->s3_object_url;
         }
-        $s3_object_url = Storage::disk('s3')->url($path);
         return $s3_object_url;
     }
 }
