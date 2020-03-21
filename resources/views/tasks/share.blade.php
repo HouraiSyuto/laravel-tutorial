@@ -19,6 +19,15 @@
               <label for="due_date">期限</label>
               <p>{{ $task->formatted_due_date }}</p>
             </div>
+            <div class="form-group">
+              <label for="details">詳細</label>
+              <p>{{ $task->details }}</p>
+            </div>
+            <div class="form-group">
+              <label for="s3_object_url">画像</label>
+              <br>
+              <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+            </div>
           </div>
         </nav>
       </div>
