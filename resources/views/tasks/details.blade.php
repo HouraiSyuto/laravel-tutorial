@@ -40,6 +40,11 @@
                 </a>
               </td>
             </div>
+            <div class="text-right">
+              <a href="{{ route('home') }}">
+                <button type="button" class="btn btn-primary">戻る</button>
+              </a>
+            </div>
           </div>
         </nav>
       </div>
