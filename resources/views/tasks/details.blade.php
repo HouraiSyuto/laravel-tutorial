@@ -19,6 +19,27 @@
               <label for="due_date">期限</label>
               <p>{{ $task->formatted_due_date }}</p>
             </div>
+            <div class="form-group">
+              <label for="details">詳細</label>
+              <p>{{ $task->details }}</p>
+            </div>
+            <div class="form-group">
+              <label for="s3_object_url">画像</label>
+              <br>
+              <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+            </div>
+            <div class="form-group">
+              <td>
+              <a href="{{ route('tasks.url', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
+                シェア
+              </a>
+              </td>
+              <td>
+                <a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">
+                  編集
+                </a>
+              </td>
+            </div>
           </div>
         </nav>
       </div>
