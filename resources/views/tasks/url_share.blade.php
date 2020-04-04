@@ -32,9 +32,9 @@
               <p>{{ $task->details }}</p>
             </div>
             <div class="form-group">
-              <label for="s3_object_url">画像</label>
+              <label for="image_url">画像</label>
               <br>
-              <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+              <img src="{{ $task->image_url }}" width="300" height="300" >
             </div>
           </div>
         </nav>

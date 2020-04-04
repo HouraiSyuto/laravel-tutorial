@@ -52,9 +52,9 @@
                        value="{{ old('details', $task->details) }}" maxlength="400" ></textarea>
               </div>
               <div class="form-group">
-                <label for="s3_object_url">画像</label>
+                <label for="image_url">画像</label>
                 <br>
-                <img src="{{ $task->s3_object_url }}" width="300" height="300" >
+                <img src="{{ $task->image_url }}" width="300" height="300" >
                 {{ csrf_field() }}
                 <input type="file" name="file">
               </div>

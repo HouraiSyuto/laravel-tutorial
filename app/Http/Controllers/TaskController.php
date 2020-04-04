@@ -63,8 +63,8 @@ class TaskController extends Controller
         $task->due_date = $request->due_date;
         $task->share_url = uniqid();
         $task->details = $request->details;
-        $task->s3_object_url = $this->uploadImage($task, $request);
-        if (isset($task->s3_object_url)) {
+        $task->image_url = $this->uploadImage($task, $request);
+        if (isset($task->image_url)) {
             $folder->tasks()->save($task);
         }
 
@@ -103,7 +103,7 @@ class TaskController extends Controller
         $task->status = $request->status;
         $task->due_date = $request->due_date;
         $task->details = $request->details;
-        $task->s3_object_url = $this->uploadImage($task, $request);
+        $task->image_url = $this->uploadImage($task, $request);
         $task->save();
 
         return redirect()->route('tasks.index', [
@@ -183,10 +183,10 @@ class TaskController extends Controller
             if(empty($path)){
                 throw new Exception('画像のアップロードに失敗しました。');
             }
-            $s3_object_url = Storage::disk('s3')->url($path);
+            $image_url = Storage::disk('s3')->url($path);
         } else {
-            $s3_object_url = $task->s3_object_url;
+            $image_url = $task->image_url;
         }
-        return $s3_object_url;
+        return $image_url;
     }
 }
