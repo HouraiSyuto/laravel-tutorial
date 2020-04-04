@@ -26,7 +26,7 @@ class AddS3ObjectUrlToTasks extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            //
+            $table->dropColumn('s3_object_url');
         });
     }
 }
