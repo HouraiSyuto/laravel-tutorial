@@ -175,7 +175,7 @@ class TaskController extends Controller
     /**
      * 画像アップロード
      */
-    public function uploadImage($task, $request)
+    private function uploadImage($task, $request)
     {
         if ($request->has('file')) {
             $file = $request->file('file');
