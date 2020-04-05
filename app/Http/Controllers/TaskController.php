@@ -152,16 +152,11 @@ class TaskController extends Controller
             abort(404);
         }
 
-        if (Auth::check()) {
-            $login_check = Auth::user()->name;
-        }else{
-            $login_check = null;
-        }
-
         $folder = $this->task_repository->getFolderCreator($task->folder_id);
         $user = $this->task_repository->getTaskCreator($folder->user_id);
 
-        if($user->name == $login_check){
+
+        if(Auth::check() && $folder->user_id === Auth::user()->id){
             return view('tasks/details', [
                 'task' => $task,
             ]);
