@@ -12,13 +12,13 @@ interface TaskRepositoryInterface
      */
     public function getFirstRecordByShareUrl($share_url);
 
-    /**
-     * シェアタスクのフォルダを取得
-     *
-     * @param $folder_id
-     * @return mixed
-     */
-    public function getFolderCreator($folder_id);
+    // /**
+    //  * シェアタスクのフォルダを取得
+    //  *
+    //  * @param $folder_id
+    //  * @return mixed
+    //  */
+    // public function getFolderCreator($folder_id);
 
     /**
      * シェアタスクのnameを取得

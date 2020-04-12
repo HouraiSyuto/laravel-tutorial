@@ -29,15 +29,15 @@ class TaskRepository implements TaskRepositoryInterface
         return Task::where('share_url', $share_url)->first();
     }
 
-    /**
-     * シェアタスクのフォルダを取得
-     *
-     * @param $folder_id
-     * @return mixed
-     */
-    public function getFolderCreator($folder_id){
-        return DB::table('folders')->where('id',$folder_id)->first();
-    }
+    // /**
+    //  * シェアタスクのフォルダを取得
+    //  *
+    //  * @param $folder_id
+    //  * @return mixed
+    //  */
+    // public function getFolderCreator($folder_id){
+    //     return DB::table('folders')->where('id',$folder_id)->first();
+    // }
 
     /**
      * シェアタスクのnameを取得
