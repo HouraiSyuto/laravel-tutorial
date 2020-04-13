@@ -28,14 +28,4 @@ class TaskRepository implements TaskRepositoryInterface
     {
         return Task::where('share_url', $share_url)->first();
     }
-
-    /**
-     * シェアタスクのnameを取得
-     *
-     * @param $user_id
-     * @return mixed
-     */
-    public function getTaskCreator($user_id){
-        return DB::table('users')->where('id',$user_id)->first();
-    }
 }

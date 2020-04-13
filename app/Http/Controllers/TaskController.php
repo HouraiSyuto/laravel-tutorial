@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Task\TaskRepositoryInterface;
 use App\Repositories\Folder\FolderRepositoryInterface;
+use App\Repositories\User\UserRepositoryInterface;
 
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
 use App\Task;
 use App\Folder;
+use App\User;
 use Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    public function __construct(TaskRepositoryInterface $task_repository, FolderRepositoryInterface $folder_repository)
+    public function __construct(TaskRepositoryInterface $task_repository, FolderRepositoryInterface $folder_repository, UserRepositoryInterface $user_repository)
    {
       $this->task_repository = $task_repository;
       $this->folder_repository = $folder_repository;
+      $this->user_repository = $user_repository;
    }
 
     /**
@@ -156,7 +159,7 @@ class TaskController extends Controller
         }
 
         $folder = $this->folder_repository->getFolderCreator($task->folder_id);
-        $user = $this->task_repository->getTaskCreator($folder->user_id);
+        $user = $this->user_repository->getTaskCreator($folder->user_id);
 
 
         if(Auth::check() && $folder->user_id === Auth::user()->id){

@@ -19,12 +19,4 @@ interface TaskRepositoryInterface
     //  * @return mixed
     //  */
     // public function getFolderCreator($folder_id);
-
-    /**
-     * シェアタスクのnameを取得
-     *
-     * @param $user_id
-     * @return mixed
-     */
-    public function getTaskCreator($user_id);
 }
