@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    public function __construct(TaskRepositoryInterface $task_repository,FolderRepositoryInterface $folder_repository)
+    public function __construct(TaskRepositoryInterface $task_repository, FolderRepositoryInterface $folder_repository)
    {
       $this->task_repository = $task_repository;
       $this->folder_repository = $folder_repository;
