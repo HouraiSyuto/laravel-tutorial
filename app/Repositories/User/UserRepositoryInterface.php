@@ -10,6 +10,6 @@ interface UserRepositoryInterface
      * @param $user_id
      * @return mixed
      */
-    public function getTaskCreator($user_id);
+    public function getUserCreator($user_id);
 
 }

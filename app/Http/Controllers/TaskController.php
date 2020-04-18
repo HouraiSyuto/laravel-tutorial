@@ -159,7 +159,7 @@ class TaskController extends Controller
         }
 
         $folder = $this->folder_repository->getFolderCreator($task->folder_id);
-        $user = $this->user_repository->getTaskCreator($folder->user_id);
+        $user = $this->user_repository->getUserCreator($folder->user_id);
 
 
         if(Auth::check() && $folder->user_id === Auth::user()->id){
