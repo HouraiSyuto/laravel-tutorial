@@ -70,9 +70,7 @@ class TaskController extends Controller
         $task->share_url = uniqid();
         $task->details = $request->details;
         $task->image_url = $this->uploadImage($task, $request);
-        if (isset($task->image_url)) {
-            $folder->tasks()->save($task);
-        }
+        $folder->tasks()->save($task);
 
         return redirect()->route('tasks.index', [
             'id' => $folder->id,
