@@ -27,7 +27,19 @@ class AppServiceProvider extends ServiceProvider
         // Task
         $this->app->bind(
             \App\Repositories\Task\TaskRepositoryInterface::class,
-            \App\Repositories\Task\TaskRepository::class
+            \App\Repositories\Task\TaskRepository::class,
+        );
+
+        // Folder
+        $this->app->bind(
+            \App\Repositories\Folder\FolderRepositoryInterface::class,
+            \App\Repositories\Folder\FolderRepository::class
+        );
+
+        // User
+        $this->app->bind(
+            \App\Repositories\User\UserRepositoryInterface::class,
+            \App\Repositories\User\UserRepository::class
         );
     }
 }

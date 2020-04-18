@@ -4,6 +4,7 @@ namespace App\Repositories\Task;
 
 use App\Task;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class TaskRepository implements TaskRepositoryInterface
 {
