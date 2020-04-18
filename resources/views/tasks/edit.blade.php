@@ -51,13 +51,17 @@
                 <textarea class="form-control" name="details" id="details"
                        value="{{ old('details', $task->details) }}" maxlength="400" ></textarea>
               </div>
+              
               <div class="form-group">
                 <label for="image_url">画像</label>
                 <br>
-                <img src="{{ $task->image_url }}" width="300" height="300" >
+                @if($task->image_url != null)
+                  <img src="{{ $task->image_url }}" width="300" height="300" >
+                @endif
                 {{ csrf_field() }}
                 <input type="file" name="file">
               </div>
+
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">送信</button>
               </div>

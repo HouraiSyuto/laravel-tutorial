@@ -23,11 +23,13 @@
               <label for="details">詳細</label>
               <p>{{ $task->details }}</p>
             </div>
+            @if($task->image_url != null)
             <div class="form-group">
               <label for="image_url">画像</label>
               <br>
               <img src="{{ $task->image_url }}" width="300" height="300" >
             </div>
+            @endif
           </div>
         </nav>
       </div>
